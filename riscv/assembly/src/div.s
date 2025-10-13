@@ -50,8 +50,16 @@ div:
         endif: 
     end:
 
-    lw a0, 0(t0)
-    lw a1, 0(t1)
+    
+
+    denom_0:
+        li a0, 0 # set result to 0
+        beq a0, a0, end_denom # Jump to end_denom
+    denom_fine:
+        lw a0, 0(t0) # set result to Q
+    end_denom:
+
+    lw a1, 0(t1) # set mod to R
 
     # example of printing inputs a0 and a1
     DEBUG_PRINT a0
